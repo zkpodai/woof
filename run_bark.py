@@ -11,9 +11,12 @@ bark_image = modal.Image \
 
 stub = modal.Stub("bark-runner", image = bark_image)
 
+if stub.is_inside():
+    from bark import generate_audio
+
+
 @stub.function(gpu="a100-20g")
 def talk(text):
-    from bark import generate_audio
     audio_array = generate_audio(text)
     return audio_array
 
