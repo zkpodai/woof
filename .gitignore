@@ -1,2 +1,5 @@
 __pycache__
-bark_generation.wav
+*.wav
+.idea
+
+playground
