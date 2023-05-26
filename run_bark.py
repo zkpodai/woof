@@ -15,13 +15,13 @@ if stub.is_inside():
     from bark import generate_audio
 
 
-@stub.function(gpu="a100-20g")
+@stub.function(gpu="t4")
 def talk(text):
     audio_array = generate_audio(text)
     return audio_array
 
 @stub.local_entrypoint()
 def main():
-    result = talk.call("♪ hello, is this me you're looking for ♪")
+    result = talk.call("[laughs] ZKPs are [clears throat] really nice")
     write_wav("bark_generation.wav", SAMPLE_RATE, result)
 
